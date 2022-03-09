@@ -1,21 +1,25 @@
 package AlgorithmTestFrame3.testcase;
 
-import AlgorithmTestFrame3.NanoNativeOJUnitTimer;
-import AlgorithmTestFrame3.OJUnitConfig;
-import AlgorithmTestFrame3.OJUnitTimer;
+import AlgorithmTestFrame3.result.OJUnitValidation;
+import AlgorithmTestFrame3.runner.OJUnitRunner;
+import AlgorithmTestFrame3.util.NanoNativeOJUnitTimer;
+import AlgorithmTestFrame3.config.OJUnitConfig;
+import AlgorithmTestFrame3.util.OJUnitTimer;
 import org.junit.After;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 
 import java.io.BufferedWriter;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
-import java.util.Arrays;
-import java.util.List;
 
-public abstract class AbstractOJUnitTestCase implements OJUnitTestCase{
-
+public abstract class AbstractOJUnitTestCase<MetaType, InputType, OutputType>
+        implements OJUnitTestCase<MetaType, InputType, OutputType>,
+        OJUnitRunner<MetaType, InputType, OutputType> {
+    @Override
+    public OJUnitTestCase<MetaType, InputType, OutputType> getTestCase() {
+        return this;
+    }
 
     //调用 JUnit 4 的部分流程。
     @Before
@@ -28,8 +32,7 @@ public abstract class AbstractOJUnitTestCase implements OJUnitTestCase{
 
     @After
     public void tearDown() throws Exception {
-
-        ojUnitOut.println("\nTest finished. ");
+        ojUnitOut.println("\n-------------------Test finished. --------------------");
         ojUnitOut.flush();
         ojUnitOut.close();
     }
@@ -43,31 +46,37 @@ public abstract class AbstractOJUnitTestCase implements OJUnitTestCase{
      */
     @Test
     public void findBug(){
+        ojUnitOut.println("Trying to find bugs of your algorithm: ");
         metadata = getListOfMetaData().get(getMetaDataOption());
 
     }
     @Test
     public void debugSingleCase(){
+        ojUnitOut.println("Testing single case: ");
         ojUnitTimer.startOrRestart();
 //        currentInput = getSingleCaseData();
         currentOutput = solve(currentInput);
-        final boolean validation = validate();
-        if (validation){
-
+        final OJUnitValidation validation = validate(metadata, currentInput, currentOutput);
+        ojUnitTimer.pauseOrContinue();
+        if (validation.getCorrectness()){
+            onCorrectAction(ojUnitConfig, validation);
+            casesPassed++;
         }else{
-
+            onWrongAction(ojUnitConfig, validation);
+            casesFailed++;
         }
-        System.out.println();
+        ojUnitOut.printf("Average running time is %.3e ms\n", ojUnitTimer.getCurrentTimePassed());
     }
 
 
-    protected Object currentOutput;
-    protected Object currentInput;
-    protected Object metadata;
+    protected OutputType currentOutput;
+    protected InputType currentInput;
+    protected MetaType metadata;
 
-    protected PrintWriter ojUnitOut;
     protected OJUnitConfig ojUnitConfig;
-    protected OJUnitTimer ojUnitTimer = new NanoNativeOJUnitTimer();
+    protected PrintWriter ojUnitOut;
+    protected OJUnitTimer ojUnitTimer;
     protected int casesPassed = 0;
     protected int casesFailed = 0;
+
 }

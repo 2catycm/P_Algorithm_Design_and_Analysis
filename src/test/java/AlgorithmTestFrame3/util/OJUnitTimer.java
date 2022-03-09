@@ -1,9 +1,11 @@
-package AlgorithmTestFrame3;
+package AlgorithmTestFrame3.util;
 
 public interface OJUnitTimer {
     void start();
     void restart();
     void startOrRestart();
+
+    void pauseOrContinue();
 
     /**
      *

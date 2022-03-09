@@ -1,10 +1,7 @@
 package AlgorithmTestFrame3.testcase;
 
-import AlgorithmTestFrame3.OJUnitConfig;
+import AlgorithmTestFrame3.config.OJUnitConfig;
 
-import java.io.BufferedWriter;
-import java.io.OutputStreamWriter;
-import java.io.PrintWriter;
 import java.util.Arrays;
 import java.util.List;
 

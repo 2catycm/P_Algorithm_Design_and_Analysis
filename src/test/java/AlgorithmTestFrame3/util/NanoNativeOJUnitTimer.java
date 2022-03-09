@@ -1,4 +1,4 @@
-package AlgorithmTestFrame3;
+package AlgorithmTestFrame3.util;
 
 public class NanoNativeOJUnitTimer implements OJUnitTimer{
     @Override
@@ -18,6 +18,7 @@ public class NanoNativeOJUnitTimer implements OJUnitTimer{
     @Override
     public void startOrRestart() {
         isRunning = true;
+        isPaused = false;
         nanoTimeWhenStarted = System.nanoTime();
     }
 
@@ -32,9 +33,27 @@ public class NanoNativeOJUnitTimer implements OJUnitTimer{
         if (!isRunning)
             throw new RuntimeException("Error: Trying to stop a timer that is not running！");
         isRunning = false;
+        isPaused = false;
+    }
+
+    @Override
+    public void pauseOrContinue() {
+        if (!isRunning)
+            throw new RuntimeException("Error: Trying to pause or continue a timer that is not running. ");
+        if (isPaused){
+            isPaused = false;
+            //continue
+            nanoTimeWhenStarted+= System.nanoTime()-lastStoppedTime;
+        }else {
+            isPaused = true;
+            //pause
+            lastStoppedTime = System.nanoTime();
+        }
     }
 
     private long lastStoppedTime = 0;
     private long nanoTimeWhenStarted = 0;
     private boolean isRunning = false;
+
+    private boolean isPaused = false;
 }

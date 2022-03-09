@@ -1,4 +1,4 @@
-package AlgorithmTestFrame3;
+package AlgorithmTestFrame3.util;
 
 import org.junit.After;
 import org.junit.Before;
@@ -35,5 +35,19 @@ public class NanoNativeOJUnitTimerTest {
         timer.startOrRestart();
         Arrays.sort(doubles);
         System.out.println(timer.getCurrentTimePassed());
+    }
+
+    @Test
+    public void pauseOrContinue() {
+        timer.startOrRestart();
+        final Random random = new Random();
+        final double[] doubles = IntStream.range(0, 10000).mapToDouble(i -> random.nextDouble()).toArray();
+        timer.pauseOrContinue();
+        Arrays.sort(doubles);
+        timer.pauseOrContinue();
+        Arrays.sort(doubles);
+        Arrays.sort(doubles);
+        System.out.printf("Average running time is %.3e ms\n", timer.getCurrentTimePassed());
+        System.out.printf("Average running time is %.3f ms\n", timer.getCurrentTimePassed());
     }
 }
