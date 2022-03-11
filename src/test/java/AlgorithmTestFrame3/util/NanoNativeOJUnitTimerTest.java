@@ -1,8 +1,9 @@
 package AlgorithmTestFrame3.util;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 import java.util.Random;
@@ -10,12 +11,12 @@ import java.util.stream.IntStream;
 
 public class NanoNativeOJUnitTimerTest {
     private OJUnitTimer timer;
-    @Before
+    @BeforeAll
     public void setUp() throws Exception {
         timer = new NanoNativeOJUnitTimer();
     }
 
-    @After
+    @AfterAll
     public void tearDown() throws Exception {
         timer.stop();
     }

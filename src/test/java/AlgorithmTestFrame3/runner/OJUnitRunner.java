@@ -1,7 +1,7 @@
 package AlgorithmTestFrame3.runner;
 
 import AlgorithmTestFrame3.testcase.OJUnitTestCase;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public interface OJUnitRunner <MetaType, InputType, OutputType>{
     OJUnitTestCase<MetaType, InputType, OutputType> getTestCase();

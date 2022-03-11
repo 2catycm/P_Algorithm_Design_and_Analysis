@@ -5,9 +5,10 @@ import AlgorithmTestFrame3.runner.OJUnitRunner;
 import AlgorithmTestFrame3.util.NanoNativeOJUnitTimer;
 import AlgorithmTestFrame3.config.OJUnitConfig;
 import AlgorithmTestFrame3.util.OJUnitTimer;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
+
 
 import java.io.BufferedWriter;
 import java.io.OutputStreamWriter;
@@ -22,7 +23,7 @@ public abstract class AbstractOJUnitTestCase<MetaType, InputType, OutputType>
     }
 
     //调用 JUnit 4 的部分流程。
-    @Before
+    @BeforeAll
     public void setUp() throws Exception {
         ojUnitConfig = this.getOJUnitConfig();
         ojUnitTimer = ojUnitConfig.getOJUnitTimer();
@@ -30,7 +31,7 @@ public abstract class AbstractOJUnitTestCase<MetaType, InputType, OutputType>
         ojUnitOut.println("Hi, there! This is OJUnit Test Frame. Now let's begin our journey! ");
     }
 
-    @After
+    @AfterAll
     public void tearDown() throws Exception {
         ojUnitOut.println("\n-------------------Test finished. --------------------");
         ojUnitOut.flush();
