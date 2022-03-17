@@ -21,4 +21,7 @@ public class JudgeRandom {
             arrayA[i] = temp;
         }
     }
+    public static int randomInt(int startInclusive, int endInclusive){
+        return random.nextInt(endInclusive-startInclusive+1)+startInclusive;
+    }
 }

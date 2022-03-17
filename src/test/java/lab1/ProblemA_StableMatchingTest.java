@@ -20,7 +20,7 @@ public class ProblemA_StableMatchingTest {
     private static ObjectOutputStream dataSaver;
     private static ObjectInputStream dataLoader;
     private static String dataPath =
-            Path.of("src/main/resources/testData/ProblemA_StableMatchingTest.dat").toAbsolutePath().toString();
+            Path.of("src/main/resources/testData/lab1/ProblemA_StableMatchingTest.dat").toAbsolutePath().toString();
 
     //    private static boolean saving
     @BeforeAll

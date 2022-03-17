@@ -4,6 +4,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
+//#pragma OJ main
 public class ProblemB_ManyToOneStableMatching {
     //其实这个reader最好可以重定向，这样才方便OJUnit测试main的输入输出格式对不对。
     private static OJReader in = new OJReader();
