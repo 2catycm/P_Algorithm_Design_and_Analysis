@@ -21,6 +21,13 @@ public class JudgeRandom {
             arrayA[i] = temp;
         }
     }
+    public static int[] randomIntArray(int startInclusive, int endInclusive, int length){
+        final int[] ints = new int[length];
+        for (int i = 0; i < length; i++) {
+            ints[i] = randomInt(startInclusive, endInclusive);
+        }
+        return ints;
+    }
     public static int randomInt(int startInclusive, int endInclusive){
         return random.nextInt(endInclusive-startInclusive+1)+startInclusive;
     }

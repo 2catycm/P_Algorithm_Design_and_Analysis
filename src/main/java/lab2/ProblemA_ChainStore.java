@@ -54,7 +54,7 @@ public class ProblemA_ChainStore {
             }
             popularStores.addAll(observedStores);
         }
-        return true;
+        return popularStores.stream().mapToInt(o -> o.remainDays).noneMatch(i -> i != 0);
     }
     static class Store implements Comparable<Store>{
         int remainDays;
