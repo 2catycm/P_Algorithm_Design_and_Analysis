@@ -6,6 +6,9 @@ import java.util.List;
 import java.util.function.IntConsumer;
 
 class OJReader extends StreamTokenizer {
+    public OJReader(InputStream in) {
+        super(new BufferedReader(new InputStreamReader(in)));
+    }
     public OJReader() {
         super(new BufferedReader(new InputStreamReader(System.in)));
     }
@@ -116,6 +119,9 @@ class OJWriter extends PrintWriter {
     }
 
     public OJWriter() {
+        super(new BufferedOutputStream(System.out), true);
+    }
+    public OJWriter(OutputStream out) {
         super(new BufferedOutputStream(System.out), true);
     }
 }
