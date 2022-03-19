@@ -18,23 +18,25 @@ public class ProblemB_BunnyTopia {
     }
 
     static int solve(int n, int m, int[] villageReward, EdgeWeightedUndirectedGraph<Integer> graph) {
+        final var longReward = Arrays.stream(villageReward).mapToLong(Long::valueOf).toArray();
         for (int i = 0; i < n; i++) {
-            villageReward[i]<<=1;
+            longReward[i]<<=1;
             for (var relative:graph.relativesOf(i+1)){
 //                villageReward[i]+=(relative.weight>>1);
 //                villageReward[i]+=(relative.weight); //可以不除2，无损的
-                villageReward[i]+=(relative.weight); //不能不除2，否则分数太多了
+                longReward[i]+=(relative.weight); //不能不除2，否则分数太多了
 //                if (relative.other==i+1){//自环
 //                    villageReward[i]+=(relative.weight>>1); //再加一次
 //                }
             }
         }
         long P = 0;
-        Arrays.sort(villageReward);
+        Arrays.sort(longReward);
         for (int i = n-1; i >=0 ; i-=2) {
-            P+=villageReward[i];
             if (i-1>=0)
-                P-=villageReward[i-1];
+                P+=longReward[i]-longReward[i-1];
+            else
+                P+=longReward[i];
         }
         return (int)(P>>1);
     }
