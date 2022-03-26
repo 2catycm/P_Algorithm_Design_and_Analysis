@@ -10,44 +10,62 @@ import java.util.HashMap;
  * @param <V>
  */
 class InnoDBLikeCache <K,V>{
-    protected HashMap<K, CacheNode<K, V>> map;
+    protected HashMap<K, CacheNode<V>> map;
+    protected int youngCapacity, oldCapacity;
     protected int youngSize, oldSize;
-    public InnoDBLikeCache(int youngSize, int oldSize) {
-        this.youngSize = youngSize;
-        this.oldSize = oldSize;
-        map = new HashMap<>(getYoungSize()+getOldSize());
+    protected CacheNode<V> leftMargin = new CacheNode<>(null, null, null);
+    protected CacheNode<V> middleBoundary = new CacheNode<>(null, null, null);
+    protected CacheNode<V> rightMargin = new CacheNode<>(null, null, null);
+    public V get(K key){
+
+    }
+    public void put(K key, V value){
+
     }
 
-    public int getYoungSize() {
-        return youngSize;
+    @Override
+    public String toString() {
+        return super.toString();
     }
 
-    public int getOldSize() {
-        return oldSize;
+    public InnoDBLikeCache(int youngCapacity, int oldCapacity) {
+        this.youngCapacity = youngCapacity;
+        this.oldCapacity = oldCapacity;
+        map = new HashMap<>(getYoungCapacity()+ getOldCapacity());
+        //互认
+        leftMargin.next = middleBoundary;
+        middleBoundary.previous = leftMargin;
+        middleBoundary.next = rightMargin;
+        rightMargin.previous = middleBoundary;
     }
-    //重构：或许CacheNode不需要存K
-    public static class CacheNode<K, V> { //代码复用是世界上最大的罪恶，它让人期望落空，它让人陷入空想。
-        public K key;
+    public static class CacheNode<V> { //代码复用是世界上最大的罪恶，它让人期望落空，它让人陷入空想。
         public V value;
-        public CacheNode<K, V> prev;
-        public CacheNode<K, V> next;
+        public CacheNode<V> previous;
+        public CacheNode<V> next;
 
-        public CacheNode(K key, V value, CacheNode<K, V> prev, CacheNode<K, V> next) {
-            this.key = key;
+        public CacheNode(V value, CacheNode<V> previous, CacheNode<V> next) {
             this.value = value;
-            this.prev = prev;
+            this.previous = previous;
             this.next = next;
         }
 
         @Override
         public String toString() {
             return "CacheNode{" +
-                    "key=" + key +
-                    ", value=" + value +
-                    ", prev=" + prev.key +
-                    ", next=" + next.key +
+                    "value=" + value +
+                    ", prev=" + previous.value +
+                    ", next=" + next.value +
                     '}';
         }
+    }
+
+
+    public int getYoungCapacity() {
+        return youngCapacity;
+    }
+
+    public int getOldCapacity() {
+        return oldCapacity;
     }
 }
 //#include "BidirectionalLinkedNodes.java"
