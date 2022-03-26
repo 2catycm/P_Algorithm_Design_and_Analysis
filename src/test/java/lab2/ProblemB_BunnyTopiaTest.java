@@ -15,11 +15,13 @@ import java.util.Scanner;
 import static org.junit.jupiter.api.Assertions.*;
 
 class ProblemB_BunnyTopiaTest {
-    private static int[] Ns = {2, 3, 5, 7, 15, (int) 10000,(int) 2e5, (int) 100, (int) 3}; //村庄数量
-    private static int[] Ms = {2, 2, 8, 3, 20, (int) 1000,(int) 2e5, (int) 100, (int) 2}; //边数量
-    private static int[] MaxRewards = {2, 2, 8, 3, 20, (int) 2e8 ,(int) 20, (int) 1e9, (int) 1e9}; //边数量
+    private static int[] Ns = {2, 3, 5, 7, 15, (int) 20,(int) 2e5, (int) 100, (int) 3}; //村庄数量
+    private static int[] Ms = {2, 2, 8, 3, 20, (int) 3000,(int) 2e5, (int) 100, (int) 2}; //边数量
+    private static int[] MaxRewards = {2, 2, 8, 3, (int) 1e9, (int) 2e8 ,(int) 20, (int) 1e9, (int) 1e9}; //边数量
 //    private static int option = 1; //1 passed
+//    private static int option = Ns.length-1; // Ns.length-2 passed
     private static int option = Ns.length-2; // Ns.length-2 passed
+//    private static int option = Ns.length-4; // Ns.length-2 passed
     private static int N = Ns[option];
     private static int M = Ms[option];
     private static int MaxReward = MaxRewards[option];
@@ -54,7 +56,7 @@ class ProblemB_BunnyTopiaTest {
         }
     }
 
-    @RepeatedTest(100)
+    @RepeatedTest(200)
     void findBug() {
         setUpFindBug();
         withMessageValidate();
@@ -65,7 +67,7 @@ class ProblemB_BunnyTopiaTest {
         for (int i = 0; i < M; i++) {
             graph.addEdge(graphMat[i][0], graphMat[i][1], graphMat[i][2]);
         }
-        final int solution = ProblemB_BunnyTopia
+        final var solution = ProblemB_BunnyTopia
                 .solve(N, M, villageReward, graph);
         final StringBuilder messageBuilder = new StringBuilder();
         messageBuilder.append(String.format("N,M = %d, %d\n\t", N, M));
@@ -75,20 +77,23 @@ class ProblemB_BunnyTopiaTest {
         messageBuilder.append("With solution: \n\t").append(solution).append("\n");
         validate(solution, messageBuilder.toString());
     }
-    void validate(int solution, String message){
+    void validate(long solution, String message){
         try {
             final var expectedSolution = getExpectedSolution(processBuilderRef);
             final var myCSolution = getExpectedSolution(processBuilderC);
+            final var myCppSolution = getExpectedSolution(processBuilderCpp);
             assertEquals(expectedSolution, solution, message);
             assertEquals(expectedSolution, myCSolution, message);
+            assertEquals(expectedSolution, myCppSolution, message);
         }catch (InputMismatchException e){
             System.err.println(message);
             e.printStackTrace();
         }
     }
     final ProcessBuilder processBuilderC = new ProcessBuilder("src/main/java/lab2/BunnyTopia.exe");
+    final ProcessBuilder processBuilderCpp = new ProcessBuilder("src/main/java/lab2/BunnyTopiaCpp.exe");
     final ProcessBuilder processBuilderRef = new ProcessBuilder("src/test/resources/lab2/ref/B.exe");
-    int getExpectedSolution(ProcessBuilder processBuilder){
+    long getExpectedSolution(ProcessBuilder processBuilder){
         final Process process;
         try {
             process = processBuilder.start();
@@ -107,7 +112,7 @@ class ProblemB_BunnyTopiaTest {
             outputToProcess.printf("%d %d %d\n", graphMat[i][0], graphMat[i][1], graphMat[i][2]);
         }
         outputToProcess.flush();
-        return inputFromProcess.nextInt();
+        return inputFromProcess.nextLong();
     }
     @Test
     void sample2() {

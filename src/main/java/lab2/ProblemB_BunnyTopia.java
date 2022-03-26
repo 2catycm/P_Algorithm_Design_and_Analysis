@@ -17,7 +17,7 @@ public class ProblemB_BunnyTopia {
         out.println(solve(N, M, villageReward, graph));
     }
 
-    static int solve(int n, int m, int[] villageReward, EdgeWeightedUndirectedGraph<Integer> graph) {
+    static long solve(int n, int m, int[] villageReward, EdgeWeightedUndirectedGraph<Integer> graph) {
         final var longReward = Arrays.stream(villageReward).mapToLong(Long::valueOf).toArray();
         for (int i = 0; i < n; i++) {
             longReward[i]<<=1;
@@ -38,7 +38,7 @@ public class ProblemB_BunnyTopia {
             else
                 P+=longReward[i];
         }
-        return (int)(P>>1);
+        return (P>>1);
     }
 }
 //#include "OnlineJudgeIO.java"
