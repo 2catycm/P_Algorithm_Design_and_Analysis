@@ -20,9 +20,28 @@ final class NumberTheoryToolBox {
         }
         return result;
     }
+
+    /**
+     *
+     * @param a integer
+     * @param primeModulus positive integer
+     * @return b such that b∈[0, modulus-1] and ab三1 (mod modulus)
+     */
     public static int primeModularInverse(int a, int primeModulus){
+        assert primeModulus>0;
 //        assert isPrime(primeModulus);
-        return fastPower(a, primeModulus-2, primeModulus);
+        return normalizeMod(fastPower(a, primeModulus - 2, primeModulus), primeModulus);
+    }
+
+    /**
+     * @param a integer
+     * @param modulus positive integer
+     * @return b such that b三a (mod modulus) and b∈[0, modulus-1]
+     */
+    public static int normalizeMod(int a, int modulus){
+        assert modulus>0;
+        a%=modulus;
+        return a<0?a+modulus:a;
     }
 
 //    private static int maxKnownPrimeBoundary = 19;

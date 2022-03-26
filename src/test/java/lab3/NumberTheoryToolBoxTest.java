@@ -29,4 +29,10 @@ class NumberTheoryToolBoxTest {
         assertEquals(2, NumberTheoryToolBox.primeModularInverse(4, 7));
         assertEquals(9, NumberTheoryToolBox.primeModularInverse(2, 17));
     }
+    @Test
+    void testPrimeModularInverse_negative(){
+        assertEquals(4, NumberTheoryToolBox.primeModularInverse(-5, 7));
+        assertEquals(2, NumberTheoryToolBox.primeModularInverse(-3, 7));
+        assertEquals(9, NumberTheoryToolBox.primeModularInverse(-15, 17));
+    }
 }
