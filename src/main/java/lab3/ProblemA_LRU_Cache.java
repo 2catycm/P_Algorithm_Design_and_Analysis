@@ -37,3 +37,4 @@ public class ProblemA_LRU_Cache {
     }
 }
 //#include "OnlineJudgeIO.java"
+//#include "InnoDBLikeCache.java"
