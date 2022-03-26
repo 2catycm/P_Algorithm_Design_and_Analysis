@@ -11,7 +11,7 @@ public class ProblemA_LRU_Cache {
         final var N = in.nextInt(); //young list size
         final var M = in.nextInt(); //old list size
         final var K = in.nextInt(); //number of operations
-        final var innoDBLikeCache = new InnoDBLikeCache(N, M);
+        final var innoDBLikeCache = new InnoDBLikeCache<Integer, Integer>(N, M);
         for (int i = 0; i < K; i++) {
             final var op = in.next();
             switch (op){
@@ -20,7 +20,7 @@ public class ProblemA_LRU_Cache {
                     break;
                 }
                 case "get":{
-                    out.println(innoDBLikeCache.get(in.nextIntArray()));
+                    out.println(innoDBLikeCache.getOrDefault(in.nextInt(), -1));
                     break;
                 }
                 case "print":{
