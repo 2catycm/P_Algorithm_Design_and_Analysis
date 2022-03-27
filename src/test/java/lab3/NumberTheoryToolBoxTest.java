@@ -1,6 +1,8 @@
 package lab3;
 
+import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
+import random.JudgeRandom;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -34,5 +36,13 @@ class NumberTheoryToolBoxTest {
         assertEquals(4, NumberTheoryToolBox.primeModularInverse(-5, 7));
         assertEquals(2, NumberTheoryToolBox.primeModularInverse(-3, 7));
         assertEquals(9, NumberTheoryToolBox.primeModularInverse(-15, 17));
+    }
+
+    @RepeatedTest(100)
+    void primeModularInverse() {
+        final var modulus = JudgeRandom.intRandomPrime();
+        final var a = JudgeRandom.randomInt((int) -1e9, (int) 1e9);
+        final var inv = NumberTheoryToolBox.primeModularInverse(a, modulus);
+        assertEquals(1, NumberTheoryToolBox.normalizeMod((int) ((long)a*inv%modulus), modulus), String.format("when a=%d, calculated inv=%d. \n where prime=%d", a, inv, modulus));
     }
 }
