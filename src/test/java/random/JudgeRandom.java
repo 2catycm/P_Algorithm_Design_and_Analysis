@@ -1,5 +1,6 @@
 package random;
 
+import java.math.BigInteger;
 import java.util.Random;
 
 public class JudgeRandom {
@@ -30,5 +31,10 @@ public class JudgeRandom {
     }
     public static int randomInt(int startInclusive, int endInclusive){
         return random.nextInt(endInclusive-startInclusive+1)+startInclusive;
+    }
+
+    public static int intRandomPrime() {
+        BigInteger prime = BigInteger.probablePrime(30, new Random());
+        return prime.intValueExact();
     }
 }

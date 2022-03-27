@@ -1,6 +1,4 @@
-package lab3;
-
-import java.util.BitSet;
+package random;
 
 final class NumberTheoryToolBox {
     /**
@@ -43,4 +41,33 @@ final class NumberTheoryToolBox {
         a%=modulus;
         return a<0?a+modulus:a;
     }
+    public static boolean fermatIsPrime(int n, double fakeConfidence){
+        int times = (int) ((n-1)*fakeConfidence);
+        for (int i = 0; i < times; i++) {
+            final var a = JudgeRandom.randomInt(1, n - 1);
+            if(fastPower(a, n - 1, n) != 1)
+                return false;
+        }
+        return true;
+    }
+
+
+//    private static int maxKnownPrimeBoundary = 19;
+//    private static BitSet isPrime = new BitSet(); //假定不是素数
+//    static {
+//        isPrime.set(2); isPrime.set(3); isPrime.set(5); isPrime.set(7);
+//        isPrime.set(11); isPrime.set(13); isPrime.set(17); isPrime.set(19);
+//    }
+//    public static boolean isPrime(int number) {
+//        assert number>=0;
+//        if (maxKnownPrimeBoundary>=number)
+//            return isPrime.get(number); //缓存
+//        maxKnownPrimeBoundary = number;
+//        // 筛法
+//        final var sqrt = (int)Math.sqrt(number);
+//        for (int i = 2; i < sqrt; i++) {
+//            if (isPrime)
+//        }
+//        return true;
+//    }
 }

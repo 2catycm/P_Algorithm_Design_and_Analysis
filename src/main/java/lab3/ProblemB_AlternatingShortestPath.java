@@ -27,18 +27,19 @@ class AlternatingShortestPathSolver{
         this.digraph = digraph;
         this.N = digraph.verticesCnt; this.M = digraph.edgesCnt;
         this.modulus = modulus;
+        src = 1; dst = N;
         solve();
     }
     public long getSolution(){
         return solution;
     }
-    private long solution = Integer.MAX_VALUE; //注意距离没有mod p，所以完全可能达到long
+    private long solution = Long.MAX_VALUE; //注意距离没有mod p，所以完全可能达到long
 //    private int[][] knownDist;
 //    knownDist = new int[N+1][4];
 //        for (int i = 0; i < knownDist.length; i++) {
 //            Arrays.fill(knownDist[i], Integer.MAX_VALUE);
 //        } 这也是一种写法
-    private final int src = 1, dst = N;
+    private int src, dst;
     private void solve(){
         final var iq = new IndexInferiorityQueue<Long>
                 (4*(N + 1)); //存储当前最小值为value。key是一种编码
@@ -105,3 +106,4 @@ class AlternatingShortestPathSolver{
 //#include "OnlineJudgeIO.java"
 //#include "NumberTheoryToolBox.java"
 //#include "EdgeWeightedGraphs.java"
+//#include "优先队列.java"
