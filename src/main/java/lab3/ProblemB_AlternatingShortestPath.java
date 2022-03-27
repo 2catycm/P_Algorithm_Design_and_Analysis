@@ -54,7 +54,7 @@ class AlternatingShortestPathSolver{
                 return;
             }
             for (var directedEdge:digraph.relativesOf(topNode.vertex)){
-                final var newCost = spelledDistance(directedEdge.weight, (topNode.time+1)%4) + iq.keyOf(topIndex);
+                final var newCost = spelledDistance(directedEdge.weight, (topNode.time)%4) + iq.keyOf(topIndex);
                 final var relativeNodeIndex = new VertexAndTime(directedEdge.other, (topNode.time+1)%4).index();
                 if (newCost < iq.keyOf(relativeNodeIndex)){
                     if (iq.contains(relativeNodeIndex)) iq.updateKey(relativeNodeIndex, newCost);
@@ -84,6 +84,9 @@ class AlternatingShortestPathSolver{
         }
     }
     private int spelledDistance(int x, int time) {
+        return spelledDistance(x, time, modulus);
+    }
+    static int spelledDistance(int x, int time, int modulus) {
         switch (time % 4) {
             case 0: {
                 return x;
@@ -99,8 +102,9 @@ class AlternatingShortestPathSolver{
                 final var inv = NumberTheoryToolBox.primeModularInverse(x + 1, modulus);
                 return (int) ((long) (x - 1) * inv % modulus);
             }
+            default:
+                throw new RuntimeException("Unreachable statement!");
         }
-        return 0;
     }
 }
 //#include "OnlineJudgeIO.java"
