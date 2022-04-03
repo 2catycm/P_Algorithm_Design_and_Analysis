@@ -1,0 +1,52 @@
+5 10
+50
+get 24
+print
+put 3 81
+print
+get 29
+get 3
+get 32
+get 22
+put 3 6
+print
+print
+print
+put 15 70
+put 17 32
+print
+print
+print
+put 12 6
+get 30
+put 12 78
+print
+put 15 74
+get 46
+get 22
+put 4 7
+get 15
+print
+print
+print
+put 13 25
+get 2
+print
+get 4
+put 14 72
+put 8 42
+print
+print
+put 14 97
+put 2 71
+get 13
+put 7 53
+get 4
+get 30
+put 15 31
+put 14 77
+print
+put 14 55
+print
+print
+put 15 24

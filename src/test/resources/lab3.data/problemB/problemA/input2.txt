@@ -1,0 +1,502 @@
+5 10
+500
+put 5 36
+get 43
+get 27
+get 12
+get 22
+put 9 4
+get 15
+put 7 63
+put 16 30
+put 8 12
+put 19 9
+put 14 15
+put 8 35
+put 11 22
+print
+put 8 70
+get 10
+put 1 46
+put 14 7
+get 36
+print
+put 2 99
+put 15 44
+put 14 56
+put 6 31
+print
+get 34
+get 40
+get 6
+put 2 77
+put 6 4
+put 4 83
+get 47
+get 34
+put 10 41
+get 6
+put 3 90
+put 17 12
+put 2 84
+get 39
+get 24
+put 17 15
+get 48
+get 6
+get 21
+put 16 5
+put 17 9
+put 12 52
+print
+put 1 44
+put 13 75
+get 21
+get 11
+put 18 89
+get 13
+get 33
+get 5
+get 32
+put 20 5
+get 16
+get 2
+put 11 45
+put 17 82
+get 47
+get 5
+put 15 75
+get 12
+put 13 45
+print
+print
+put 20 43
+print
+put 18 90
+get 34
+get 6
+put 2 59
+get 43
+get 18
+put 7 19
+put 12 35
+put 15 73
+put 13 1
+put 4 11
+get 3
+get 42
+put 12 36
+print
+put 16 92
+print
+put 2 86
+put 16 47
+put 20 75
+put 17 7
+put 3 38
+get 15
+put 8 26
+put 13 78
+get 50
+put 11 77
+put 14 74
+put 11 98
+put 1 63
+get 20
+print
+put 17 81
+print
+put 11 57
+get 39
+put 16 17
+print
+print
+get 2
+print
+print
+put 15 61
+get 24
+get 20
+get 4
+get 1
+get 48
+put 12 66
+put 6 2
+put 3 21
+put 2 73
+get 27
+get 28
+get 20
+get 30
+put 17 65
+get 33
+put 16 40
+put 18 35
+get 23
+put 18 48
+put 16 19
+put 11 51
+print
+get 43
+print
+put 6 71
+get 46
+put 17 94
+print
+get 18
+get 22
+print
+put 13 65
+get 35
+get 46
+get 34
+put 5 86
+get 49
+put 10 8
+get 18
+put 4 92
+get 50
+get 36
+put 13 7
+get 6
+put 1 8
+print
+put 12 27
+get 7
+put 13 1
+get 12
+put 5 53
+print
+print
+put 6 90
+get 7
+print
+get 25
+put 16 41
+get 17
+put 2 38
+put 7 32
+put 8 19
+get 48
+get 19
+print
+put 20 16
+put 14 98
+put 3 34
+get 27
+get 45
+put 17 97
+print
+get 31
+put 20 21
+get 31
+get 13
+print
+print
+put 15 42
+put 13 64
+print
+put 14 59
+put 1 17
+put 18 64
+put 18 30
+get 11
+put 3 34
+put 6 7
+put 18 46
+get 21
+get 7
+get 10
+get 4
+get 13
+get 22
+put 11 26
+put 2 74
+put 4 100
+get 33
+print
+get 47
+get 21
+get 8
+put 1 31
+get 21
+get 14
+put 8 53
+print
+get 31
+get 15
+print
+put 20 58
+print
+put 3 40
+put 11 5
+print
+put 10 3
+put 11 43
+print
+put 2 83
+put 2 75
+print
+put 19 93
+put 20 26
+get 11
+put 11 84
+print
+put 18 15
+get 29
+get 46
+get 9
+print
+get 5
+put 5 43
+put 18 98
+get 22
+get 6
+get 15
+get 24
+get 39
+put 20 3
+put 9 30
+put 7 76
+get 18
+put 3 47
+get 12
+put 18 38
+get 50
+put 19 73
+get 20
+put 7 36
+put 13 6
+print
+get 21
+put 5 81
+get 4
+print
+get 14
+put 6 17
+print
+get 10
+print
+print
+get 46
+print
+put 15 31
+get 6
+get 15
+put 11 65
+put 1 89
+get 31
+print
+put 13 15
+get 4
+get 22
+put 10 66
+put 5 99
+put 3 58
+get 46
+put 14 55
+put 1 38
+get 37
+put 17 60
+put 2 11
+get 6
+get 21
+put 12 92
+print
+get 20
+put 20 39
+get 40
+put 7 24
+get 10
+put 11 99
+put 16 9
+put 5 36
+print
+put 12 91
+put 5 56
+print
+put 18 84
+put 16 78
+get 30
+put 5 64
+put 16 26
+put 20 71
+put 13 23
+get 31
+get 40
+get 1
+get 49
+put 3 3
+get 19
+get 41
+print
+put 11 100
+get 4
+get 31
+put 14 62
+get 34
+put 8 28
+get 15
+put 6 65
+get 25
+put 10 40
+get 9
+put 9 48
+put 8 7
+print
+put 7 92
+put 4 59
+put 9 1
+put 15 99
+print
+print
+put 5 72
+get 10
+get 17
+get 47
+put 11 38
+get 35
+get 20
+get 34
+put 16 78
+get 7
+get 22
+get 39
+get 29
+get 13
+get 15
+put 11 96
+print
+put 17 81
+put 18 40
+print
+put 2 33
+put 8 21
+put 8 83
+get 27
+put 6 46
+print
+put 5 4
+get 46
+get 22
+get 31
+print
+get 28
+put 8 5
+put 14 9
+get 22
+get 14
+put 17 14
+get 30
+get 16
+print
+get 38
+put 13 37
+put 9 28
+print
+print
+put 20 10
+get 38
+print
+put 11 75
+put 8 11
+print
+get 19
+get 16
+put 18 42
+get 31
+get 11
+put 20 82
+get 31
+get 45
+put 6 18
+print
+put 19 3
+get 35
+put 20 64
+print
+get 5
+get 50
+put 11 45
+print
+put 9 92
+put 20 17
+print
+put 13 41
+get 36
+put 18 19
+get 8
+put 9 81
+get 35
+put 5 34
+get 45
+get 16
+put 13 22
+put 17 82
+put 11 96
+put 19 74
+get 39
+get 45
+put 3 15
+get 1
+get 34
+put 3 8
+put 4 24
+get 33
+get 33
+get 42
+get 17
+put 15 2
+put 19 35
+get 44
+put 6 21
+get 27
+put 3 15
+print
+put 2 87
+get 33
+put 8 62
+print
+print
+get 49
+put 18 85
+print
+put 9 61
+put 7 58
+get 21
+put 6 48
+put 18 38
+put 3 21
+get 30
+get 24
+get 29
+get 10
+get 11
+get 18
+put 20 53
+put 13 5
+get 24
+print
+put 4 52
+get 11
+get 30
+print
+put 3 24
+put 17 23
+put 1 70
+put 18 89
+print
+put 7 93
+get 34
+put 17 50
+put 13 83
+put 4 54
+put 17 64
+put 19 80
+put 3 23
+get 37
+print
+put 14 11
+get 27
+put 10 69
+get 42
